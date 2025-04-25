@@ -12,7 +12,7 @@ else:
     alpha[:, :] = 190
 
 # 누끼 따기
-red_mask = (r == 255) & (g == 0) & (b == 0) # 빨간색 찾기
+red_mask = (r == 0) & (g == 0) & (b == 0) # 빨간색 찾기
 alpha[red_mask] = 0                         # 빨간색 투명처리
 iso_img_rgba = cv2.merge((b, g, r, alpha))
 

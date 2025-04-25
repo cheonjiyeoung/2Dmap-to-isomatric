@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-map_img = cv2.imread('map.png')
+map_img = cv2.imread('map3.png')
 h, w = map_img.shape[:2]
 
 # 아이소메트릭 회전 + 스케일 행렬
@@ -32,7 +32,7 @@ translation = output_center - center_transformed
 M[:, 2] = translation.flatten()                     # 최종 행렬에 이동벡터 추가
 
 # 최종 변환 적용
-iso_map = cv2.warpAffine(map_img, M, output_size, flags=cv2.INTER_LINEAR, borderValue=(0,0,255))
+iso_map = cv2.warpAffine(map_img, M, output_size, flags=cv2.INTER_LINEAR, borderValue=(0,0,0))
 
 # 여백 최적화
 # 빨간 여백은 (0,0,255)이므로 회색값 기준으로 배경은 거의 76~85 정도
